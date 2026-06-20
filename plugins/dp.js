@@ -14,9 +14,15 @@ cmd({
     
     try {
         let ppUrl = await conn.profilePictureUrl(number, 'image');
-        // m.chat ki jagah ye logic use kar, ye group/personal dono mein kaam karega
-        let id = m.chat || m.sender; 
-        await conn.sendMessage(id, { image: { url: ppUrl }, caption: "*Love MD - Profile Pic Downloaded*" }, { quoted: mek });
+        
+        // Yahan 'm.chat' ko fix kiya hai taake ye personal aur group dono mein chale
+        let jid = m.chat || m.sender;
+        
+        await conn.sendMessage(jid, { 
+            image: { url: ppUrl }, 
+            caption: "*Love MD - Profile Pic Downloaded*" 
+        }, { quoted: mek });
+        
     } catch (e) {
         reply("*Bhai, ya toh number galat hai ya phir uski DP private hai.*");
     }
