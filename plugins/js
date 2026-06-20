@@ -1,0 +1,38 @@
+const { cmd } = require('../command');
+
+cmd({
+    pattern: "hi",
+    desc: "Girls ke liye special shayari",
+    category: "fun",
+    react: "💖",
+    filename: __filename,
+    use: ".hi"
+}, async (conn, mek, m, { reply }) => {
+
+    const giftMessages = [
+        "🌸 Phoolon ki tarah mehakti raho, hamesha muskurati raho!",
+        "✨ Aapki muskurahat hi duniya ki sabse haseen cheez hai.",
+        "🌹 Gulab ki pankhudiyon jaisa komal aapka dil hai.",
+        "💖 Aapka hona hi humare liye kisi tohfe se kam nahi.",
+        "💫 Sitaron se bhi zyada chamakti rahe aapki zindagi.",
+        "🦋 Khushiyon ki titliyan hamesha aapke paas rahein.",
+        "🎀 Aapki adaon ne to dil hi jeet liya hai.",
+        "🌈 Aapki zindagi mein har rang khushiyon ka ho.",
+        "🎈 Har din aapke liye ek nayi khushi lekar aaye.",
+        "💎 Aap heere ki tarah nayab aur kimti hain.",
+        "🌙 Chand si sundarta aur suraj si chamak ho aapki.",
+        "🍃 Zindagi ka har safar aapke liye gulzar ho.",
+        "🍬 Aapki baatein mithi aur dil pyara hai.",
+        "🌊 Sagar jaisa gehrayi wala aur saaf dil hai aapka.",
+        "☀️ Aapki hansi se hi subah ka ujala hota hai.",
+        "🕊️ Sukoon aur shanti hamesha aapke saath rahe.",
+        "🌻 Surajmukhi si chamak ho aapke chehre par.",
+        "💌 Ye chhota sa tohfa aapke naam, sirf muskurane ke liye.",
+        "🍂 Har mushkil aapke aage jhuk jaye, aap hamesha jeetain.",
+        "🍬 Aapki har khwahish puri ho, ye dua hai hamari."
+    ];
+
+    const randomGift = giftMessages[Math.floor(Math.random() * giftMessages.length)];
+
+    await reply(`🎀 *Love MD Special Gift Box* 🎀\n\n${randomGift}\n\n*Powered by Love MD | Bagga Sher*`);
+});
