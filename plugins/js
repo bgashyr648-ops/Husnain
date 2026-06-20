@@ -1,12 +1,12 @@
 const { cmd } = require('../command');
 
 cmd({
-    pattern: "shayari",
+    pattern: "loveyou",
     desc: "Girls ke liye khaas shayari",
-    category: "general",
+    category: "loveyou",
     react: "🎀",
     filename: __filename,
-    use: ".shayari"
+    use: ".loveyou"
 }, async (conn, mek, m, { reply }) => {
     try {
         const sher = [
