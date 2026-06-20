@@ -1,38 +1,47 @@
 const { cmd } = require('../command');
 
 cmd({
-    pattern: "hi",
-    desc: "Girls ke liye special shayari",
-    category: "fun",
-    react: "💖",
+    pattern: "shayari",
+    desc: "Girls ke liye khaas shayari",
+    category: "general",
+    react: "🎀",
     filename: __filename,
-    use: ".hi"
+    use: ".shayari"
 }, async (conn, mek, m, { reply }) => {
+    try {
+        const sher = [
+            "Tumhare husn ki tareef mein alfaaz kam pad jaate hain, tum muskura do toh jaise chaand bhi sharma jaate hain. ✨",
+            "Zindagi ki kitabon mein ek pyaara sa kissa ho tum, meri adhuri si zindagi ka sabse khubsurat hissa ho tum. 📖💖",
+            "Tumhare lehze mein woh saadgi hai, jo kisi haseen khwab se kam nahi. 🌸",
+            "Har ek pal tumhare naam kar diya, kyunki tumse hi toh meri duniya mein rang bhara hai. 🌈",
+            "Tumhari baaton mein woh jaadu hai, jo dil ko sukoon aur aankhon ko nasha de jaata hai. 💫",
+            "Phoolon ki mehak aur tumhari muskaan, dono hi qudrat ka ek nayab tohfa hain. 🌹",
+            "Tumhare khwabon mein jeene ka maza hi kuch aur hai, tum mere liye waqt ka sabse haseen lamha ho. ⏳✨",
+            "Dil ke dariya mein tumhari yaadon ki kashti, har pal tumhare hi khayal mein khoi rehti hai. 🌊⛵",
+            "Tumse milna ek ittefaq sahi, par tumhare saath rehna meri khwahish ban gayi hai. 💕",
+            "Teri saadgi hi tera sabse bada zevar hai, jo har kisi ko deewana bana deta hai. 💎",
+            "Meri har khushi mein tumhara zikr hota hai, kyunki mere dil par sirf tumhara hi haq hota hai. ❤️",
+            "Tumhari aankhon ki gehraiyon mein kho jaane ko dil karta hai, tere ishq mein khud ko bhula dene ko dil karta hai. 👁️💫",
+            "Khushbu ki tarah mujhmein samayi ho tum, meri har saans mein gungunayi ho tum. 🌬️🎶",
+            "Tere muskurane se hi meri subah hoti hai, tere khayalon mein hi meri shaam hoti hai. ☀️🌙",
+            "Ishq woh nahi jo tujhe paane ki zid kare, ishq woh hai jo tere liye har dua kare. 🙏✨",
+            "Tumhare bina yeh zindagi ek adhuri kahani jaisi hai, tum mil jao toh har pal raani jaisi hai. 👑",
+            "Dil ke rishte bahut gehrayi rakhte hain, hum sirf tumhare hi khwab dekhte hain. 💭💖",
+            "Ek pal ka sath tera, saari zindagi ki khushi de jata hai. 🎈",
+            "Tumse mil kar laga jaise khud se mulaqat ho gayi, meri adhuri zindagi poori ho gayi. ✨",
+            "Tum jaisi pari is zameen par kam hi milti hai, tumhari muskurahat se hi toh duniya phoolon ki tarah khilti hai. 🧚‍♀️🌸"
+        ];
 
-    const giftMessages = [
-        "🌸 Phoolon ki tarah mehakti raho, hamesha muskurati raho!",
-        "✨ Aapki muskurahat hi duniya ki sabse haseen cheez hai.",
-        "🌹 Gulab ki pankhudiyon jaisa komal aapka dil hai.",
-        "💖 Aapka hona hi humare liye kisi tohfe se kam nahi.",
-        "💫 Sitaron se bhi zyada chamakti rahe aapki zindagi.",
-        "🦋 Khushiyon ki titliyan hamesha aapke paas rahein.",
-        "🎀 Aapki adaon ne to dil hi jeet liya hai.",
-        "🌈 Aapki zindagi mein har rang khushiyon ka ho.",
-        "🎈 Har din aapke liye ek nayi khushi lekar aaye.",
-        "💎 Aap heere ki tarah nayab aur kimti hain.",
-        "🌙 Chand si sundarta aur suraj si chamak ho aapki.",
-        "🍃 Zindagi ka har safar aapke liye gulzar ho.",
-        "🍬 Aapki baatein mithi aur dil pyara hai.",
-        "🌊 Sagar jaisa gehrayi wala aur saaf dil hai aapka.",
-        "☀️ Aapki hansi se hi subah ka ujala hota hai.",
-        "🕊️ Sukoon aur shanti hamesha aapke saath rahe.",
-        "🌻 Surajmukhi si chamak ho aapke chehre par.",
-        "💌 Ye chhota sa tohfa aapke naam, sirf muskurane ke liye.",
-        "🍂 Har mushkil aapke aage jhuk jaye, aap hamesha jeetain.",
-        "🍬 Aapki har khwahish puri ho, ye dua hai hamari."
-    ];
+        const randomSher = sher[Math.floor(Math.random() * sher.length)];
 
-    const randomGift = giftMessages[Math.floor(Math.random() * giftMessages.length)];
+        const finalMessage = `${randomSher}
 
-    await reply(`🎀 *Love MD Special Gift Box* 🎀\n\n${randomGift}\n\n*Powered by Love MD | Bagga Sher*`);
+---
+🎀 Love MD 🎀`;
+        
+        await reply(finalMessage);
+    } catch (e) {
+        console.log(e);
+        reply("Bhai, shayari load hone mein koi technical masla aa gaya hai!");
+    }
 });
