@@ -2,32 +2,35 @@ const { cmd } = require('../command');
 
 cmd({
     pattern: "style",
-    desc: "Bina kisi pareshani ke har tarah ke stylish font hasil karein.",
+    desc: "Convert text to extreme heavy stylish fonts",
     category: "fun",
-    react: "✨",
+    react: "👑",
     filename: __filename,
     use: ".style [naam]"
 }, async (conn, mek, m, { reply, args }) => {
-    if (!args[0]) return reply("Bhai, naam to likho jise style karna hai!");
-    
-    const input = args.join(" ");
-    
-    const styles = [
-        "𝔅𝔞𝔤𝔤𝔞 𝔖𝔥𝔢𝔯 " + input, "𝐒𝐡𝐞𝐫 𝐄 " + input, "Sʜᴇʀ " + input, "𝓢𝓱𝓮𝓻 𝓔 " + input,
-        "𝕊𝕙𝕖𝐫 𝔼 " + input, "S̶h̶e̶r̶ ̶" + input, "丂卄乇尺 " + input, "ʂԋҽɾ " + input,
-        "ֆɦɛʀ " + input, "ꓢꃅꍟꋪ " + input, "sʜᴇʀ " + input.toUpperCase(), "sʰᵉʳ " + input,
-        "Ṡḧëŕ " + input, "S̾h̾e̾r̾ " + input, "S̸h̸e̸r̸ " + input, "S⃠h⃠e⃠r⃠ " + input,
-        "Sℋℰℛ " + input, "𝓢𝓗𝓔𝓡 " + input, "𝕊ℍ𝔼ℝ " + input, "𝕾𝕳𝕰𝕽 " + input,
-        "𝒮ℋℰℛ " + input, "ＳＨＥＲ " + input, "SᕼEᖇ " + input, "Sʜᴇʀ " + input,
-        "ֆɦɛʀ " + input, "ƧΉΣЯ " + input, "丂卄乇尺 " + input, "ᔕᕼEᖇ " + input,
-        "ՏHᗴᖇ " + input, "ֆɦɛʀ " + input, "𝓼𝓱𝓮𝓻 " + input, "𝓈𝒽ℯ𝓇 " + input,
-        "𝓼𝓱𝓮𝓻 " + input, "丂卄乇尺 " + input, "ˢʰᵉʳ " + input, "shєr " + input,
-        "s̶h̶e̶r̶ " + input, "s̲h̲e̲r̲ " + input, "s̴h̴e̴r̴ " + input, "s̷h̷e̷r̷ " + input,
-        "s̽h̽e̽r̽ " + input, "s̷h̷e̷r̷ " + input, "S͎h͎e͎r͎ " + input, "S͙h͙e͙r͙ " + input,
-        "S͆h͆e͆r͆ " + input, "S҉h҉e҉r҉ " + input, "S͓̽h͓̽e͓̽r͓̽ " + input, "🅂🄷🄴🅁 " + input
+    let text = args.join(" ");
+    if (!text) return reply("Bhai, apna naam to likho jise style karna hai!");
+
+    // Extreme Heavy Designs
+    const heavyStyles = [
+        (t) => `𝕿𝕳𝕰 𝕷𝕰𝕲𝕰𝕹𝕯 ➺ ` + t.toUpperCase(),
+        (t) => `💎 𝔖𝔗𝔜𝔏𝔈 𝔅𝔒𝔗 ➺ ` + t,
+        (t) => `🔥 𝕷𝕺𝖁𝕰 𝕸𝕯 𝕻𝕽𝕺 ➺ ` + t,
+        (t) => `⚡ 𝕬𝕿𝕿𝕴𝕿𝖀𝕯𝕰 ➺ ` + t.toUpperCase(),
+        (t) => `♛ 𝓚𝓘𝓝𝓖 𝓞𝓕 𝓛𝓞𝓥𝓔 𝓜𝓓 ➺ ` + t,
+        (t) => `⚔️ 𝔇𝔄𝔎ℜ 𝔎𝔑ℑ𝔊ℌ𝔗 ➺ ` + t,
+        (t) => `💀 𝕯𝕰𝕬𝕯𝕷𝖄 𝕾𝕿𝖄𝕷𝕰 ➺ ` + t,
+        (t) => `🧿 𝕾𝖀𝕻𝕰𝕽 𝕳𝕰𝕬𝖁𝖄 ➺ ` + t.toUpperCase(),
+        (t) => `⫸ 𝕷𝕺𝖁𝕰 𝕸𝕯 𝕮𝕺𝕸𝕸𝕬𝕹𝕯 ⫷ ` + t,
+        (t) => `『 ♛ ` + t.toUpperCase() + ` ♛ 』`,
+        (t) => `𓂀 𝔐𝔄𝔖𝔗𝔈𝔑 𝔒𝔉 𝔏𝔒𝔙𝔈 𝔐𝔇 𓂀 ` + t,
+        (t) => `◥◣ 𝕳𝕰𝕬𝖁𝖄 𝕾𝕿𝖄𝕷𝕴𝕾𝕳 ◢◤ ` + t
     ];
+
+    const randomStyle = heavyStyles[Math.floor(Math.random() * heavyStyles.length)];
+    const stylishName = randomStyle(text);
+
+    let response = `✨ *LOVE MD HEAVY STYLER*\n\n${stylishName}\n\n▬▬▬▬▬▬▬▬▬▬▬▬▬▬\n*Powered by Love MD*`;
     
-    const randomStyle = styles[Math.floor(Math.random() * styles.length)];
-    
-    await conn.sendMessage(m.chat, { text: "✨ STYLISH NAME:\n\n" + randomStyle }, { quoted: mek });
+    return await conn.sendMessage(m.chat, { text: response }, { quoted: mek });
 });
