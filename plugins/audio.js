@@ -18,7 +18,7 @@ cmd({
             "mediaType": 4, 
             "thumbnail": "https://cdn.ironman.my.id/i/yewsfo.jpg", 
             "mediaUrl": "https://www.instagram.com/officialbaloch003/profilecard/?igsh=MXY3bnZibWNhMnN5MQ==", 
-            "sourceUrl": "https://🇵🇰+𝟫𝟤𝟥𝟦𝟫𝟦𝟥𝟧𝟥0𝟩𝟩 🇵🇰/https://wa.me/qr/3JHKCD2RWYMUP1", 
+            "sourceUrl": "https://🇵🇰+92xxxx 🇵🇰/https://wa.me/qr/3JHKCD2RWYMUP1", 
             "showAdAttribution": true 
         }
     };
