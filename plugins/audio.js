@@ -1,12 +1,13 @@
 const { cmd } = require('../command');
 
-// Islamic Good Morning Command (50 Quotes)
+// 🌅 Islamic Good Morning Command (50 Quotes)
 cmd({
     pattern: "goodmorning",
-    desc: "Send Islamic Good Morning wishes",
+    desc: "Islamic Good Morning wish",
     category: "general",
     react: "🌅",
     filename: __filename,
+    use: ".goodmorning"
 }, async (conn, mek, m, { reply }) => {
     const quotes = [
         "Assalam-o-Alaikum! Allah aap ka din khair-o-barkat wala banaye. 🌅", "Subha bakhair! Allah aaj ke din aap ki tamam pareshaniyan door farmaye. ✨",
@@ -33,20 +34,23 @@ cmd({
         "Allah aap ki har pareshani door kare.", "Nayi subha, Allah ka shukar.",
         "Allah aap ko hamesha muskurata rakhe.", "Allah aap ke liye behtareen faislay kare.",
         "Subha bakhair! Allah aap ko izzat de.", "Allah aap ke liye aasaniyan paida kare.",
-        "Allah aap ko nek aur saleh banaye.", "Subha bakhair! Allah hum sab par reham farmaye."
+        "Allah aap ko nek aur saleh banaye.", "Subha bakhair! Allah hum sab par reham farmaye.",
+        "Subha ki roshni aap ki zindagi ko chamka de.", "Allah aap ka din khushnuma banaye.",
+        "Subha bakhair! Allah aap ko har dukh se door rakhe.", "Nayi subha, nai umeed, Allah sab bhalay kare."
     ];
     const randomQuote = quotes[Math.floor(Math.random() * quotes.length)];
-    let msg = `┏━━━━━━━━━━━━━━━━━━┓\n   👑 *LOVE MD - MORNING* 👑\n┗━━━━━━━━━━━━━━━━━━┛\n\n✨ ${randomQuote}\n\n▬▬▬▬▬▬▬▬▬▬▬▬▬▬\n*Powered by Bagga Sher MD*`;
+    let msg = `┏━━━━━━━━━━━━━━━━━━┓\n   👑 *LOVE MD - MORNING* 👑\n┗━━━━━━━━━━━━━━━━━━┛\n\n✨ ${randomQuote}\n\n▬▬▬▬▬▬▬▬▬▬▬▬▬▬\n*Powered by Love MD*`;
     return await conn.sendMessage(m.chat, { text: msg }, { quoted: mek });
 });
 
-// Islamic Good Night Command (50 Quotes)
+// 🌙 Islamic Good Night Command (50 Quotes)
 cmd({
     pattern: "goodnight",
-    desc: "Send Islamic Good Night wishes",
+    desc: "Islamic Good Night wish",
     category: "general",
     react: "🌙",
     filename: __filename,
+    use: ".goodnight"
 }, async (conn, mek, m, { reply }) => {
     const quotes = [
         "Allah ki hifazat mein rahen. Shab-e-Khair! 🌙", "Allah aap ko pur-sukoon neend aur ache khwab ata farmaye. ✨",
@@ -73,9 +77,11 @@ cmd({
         "Allah aap ke liye subha ka noor laye.", "Raat bakhair! Allah aap ki har muskil aasan kare.",
         "Allah aap ko har qisam ke darr se azad kare.", "Shab-e-Khair! Allah aap par khushiyan barsaye.",
         "Allah aap ki har dua mein asar de.", "Allah aap ko har buri nazar se bachaye.",
-        "Raat bakhair! Allah aap ko lambi aur nek zindagi de.", "Allah aap ka har kaam sawar de."
+        "Raat bakhair! Allah aap ko lambi aur nek zindagi de.", "Allah aap ka har kaam sawar de.",
+        "Shab-e-Khair! Allah aap ke khwabon ko noorani banaye.", "Allah aap ki neend ko ibadat mein shamil kare.",
+        "Allah ki rehmat har pal aap ke sath rahe.", "Raat bakhair! Allah aap ko hamesha salamat rakhe."
     ];
     const randomQuote = quotes[Math.floor(Math.random() * quotes.length)];
-    let msg = `┏━━━━━━━━━━━━━━━━━━┓\n   👑 *LOVE MD - NIGHT* 👑\n┗━━━━━━━━━━━━━━━━━━┛\n\n✨ ${randomQuote}\n\n▬▬▬▬▬▬▬▬▬▬▬▬▬▬\n*Powered by Bagga Sher MD*`;
+    let msg = `┏━━━━━━━━━━━━━━━━━━┓\n   👑 *LOVE MD - NIGHT* 👑\n┗━━━━━━━━━━━━━━━━━━┛\n\n✨ ${randomQuote}\n\n▬▬▬▬▬▬▬▬▬▬▬▬▬▬\n*Powered by Love MD*`;
     return await conn.sendMessage(m.chat, { text: msg }, { quoted: mek });
 });
