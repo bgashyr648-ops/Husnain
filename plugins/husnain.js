@@ -1,55 +1,122 @@
 const { cmd } = require('../command');
 
 cmd({
-    pattern: "hbday",
-    desc: "VIP Heavy Birthday Wish",
-    category: "fun",
-    react: "🎂",
-    filename: __filename
-}, async (conn, mek, m, { reply, pushName }) => {
+    pattern: "sadgirl",
+    desc: "100 Heavy Sad Shayari for Girls",
+    category: "general",
+    react: "🥀",
+    filename: __filename,
+    use: ".sadgirl"
+}, async (conn, mek, m, { reply }) => {
 
-    const name = pushName || "Jaan";
-
-    // 20 VIP Heavy Shayari for Birthday (Roman Urdu)
-    const heavyShayari = [
-        "┇ ✨ Sada muskurate raho tum,\n┇ ✨ Khushiyan chumein tumhare qadam!",
-        "┇ 🌹 Tum salamat raho hazaar baras,\n┇ 🌹 Har baras ke hon din pachaas hazaar!",
-        "┇ 💖 Phoolon si chamak ho chehre pe,\n┇ 💖 Sitaron si haseen zindagi mile tumhein!",
-        "┇ 🎉 Dua hai ke tumhari har khwahish,\n┇ 🎉 Is saal zaroor puri ho jaye!",
-        "┇ 👑 Duniya ki har khushi tumhari ho,\n┇ 👑 Aur gham ka kabhi saya bhi na ho!",
-        "┇ 🌟 Har naya din nayi umeed laye,\n┇ 🌟 Tumhari zindagi sada jagmagaye!",
-        "┇ 🎁 Khushiyon ka samandar ho tumhara,\n┇ 🎁 Kamyabi choome qadam tumhara!",
-        "┇ 🎂 Tum aaye to bahaar aayi,\n┇ 🎂 Ghar mein khushiyon ki bahaar chhayi!",
-        "┇ ✨ Allah pak tumhein lambi umar de,\n┇ ✨ Aur sehat-o-tandrusti ata farmaye!",
-        "┇ 🎈 Haste raho, muskurate raho,\n┇ 🎈 Zindagi ke har pal ko sajate raho!",
-        "┇ 🌹 Duaon mein yaad rakhte hain tumhein,\n┇ 🌹 Salgirah bohat bohat mubarak ho!",
-        "┇ 💖 Har aane wala saal behtareen ho,\n┇ 💖 Tumhara har khwab poora aur haseen ho!",
-        "┇ 🎉 Aaj ka din hai bohat khaas,\n┇ 🎉 Kyun ke aaj hai tumhari salgirah mere paas!",
-        "┇ 👑 Tumhari is pyari si muskurahat pe,\n┇ 👑 Duniya ki har khushi fida ho jaye!",
-        "┇ 🌟 Taron bhari raat aur phoolon ka din,\n┇ 🌟 Mubarak ho tumhein salgirah ka din!",
-        "┇ 🎁 Zindagi ka har safar asaan ho,\n┇ 🎁 Manzilein tumhare qadmon mein hon!",
-        "┇ 🎂 Tumhari umar ho chaand sitaron jaisi,\n┇ 🎂 Koi gham na aaye zindagi mein aisi!",
-        "┇ ✨ Dua hai khuda se is mubarak din par,\n┇ ✨ Tumhari har dua qabool ho asmaan par!",
-        "┇ 🎈 Khushiyon ki barish ho tum pe,\n┇ 🎈 Salgirah ki dheron duaein tum pe!",
-        "┇ 🌹 Sada gulzaar rahe tumhara angan,\n┇ 🌹 Hamesha mehekta rahe tumhara daaman!"
+    const sadGirlsShayari = [
+        "🥀 Aansuon mein bheegi meri ye kahaani hai, har pal teri kami ki nishaani hai.",
+        "💔 Rooh tak kaanp jati hai jab teri yaad aati hai, na jane kyun ye ladki itna roti hai.",
+        "🌧️ Mere naseeb mein bas gham hi likha hai, maine toh khushiyan maangi hi nahi thi.",
+        "🕯️ Khamoshiyan meri saari baat keh jati hain, aur wo mujhe samajh hi nahi paate.",
+        "🌑 Andhera kamra aur teri yaadein, bas yehi hai ab meri duniya.",
+        "⛓️ Dil ka dard chupa kar muskurana, ek ladki ki sabse badi majboori hoti hai.",
+        "🥀 Log kehte hain ladkiyan kamzor hoti hain, par wo nahi jante kitna dard chupati hain.",
+        "🖤 Har ladki ka dil toot-ta hai, par koi dikhata nahi.",
+        "💔 Zindagi mein sab kuch hai, par wo sukoon nahi jo tumhare sath tha.",
+        "🌧️ Mere aansu meri aankhon mein hi dab gaye, aur dard dil mein utar gaya.",
+        // ... (100 sher ka collection)
+        "🥀 Tanhaai mujhe andar se kha rahi hai, aur duniya mujhe khush samajh rahi hai.",
+        "🖤 Khwab mere sab toot gaye, aur main khud se door ho gayi.",
+        "💔 Teri bewafai ne mujhe pathar bana diya, ab koi ehsas baaki nahi.",
+        "🌧️ Har raasta ab sunsaan lagta hai, jaise meri zindagi hi tham gayi ho.",
+        "🌑 Raat bhar rote hue kat-ti hai, aur subah hote hi chehre pe nakli muskurahat.",
+        "🕯️ Ab na koi shikwa hai na koi sawaal, bas gham-e-dil hai mere paas.",
+        "🥀 Meri har khushi tere naam thi, par tune mujhe hi bhula diya.",
+        "🖤 Dard itna hai ki alfaaz nahi milte, aansu itne hain ki rone ka man nahi.",
+        "💔 Kaash main tumhe kabhi milti hi nahi, toh aaj ye haal na hota.",
+        "⛓️ Zindagi ki bheed mein main bilkul akeli hoon, har koi hai par koi apna nahi.",
+        "🥀 Ek ladki ka dard sirf wo khud janti hai, baaki sab toh bas tamasha dekhte hain.",
+        "🖤 Kyun mere naseeb mein ye likha tha, ki jise chaha wo kabhi na mil saka.",
+        "💔 Dil ka har tukda ab tujhe pukarta hai, par tu sunta nahi.",
+        "🌧️ Barasti aankhon mein bas tera hi chehra hai, jo mit-ta nahi.",
+        "🌑 Andheri raat aur meri khamoshi, dono ek dusre ke dost hain.",
+        "🕯️ Ab maut hi sukoon deti hai, kyunki zindagi ne toh bas dard diya hai.",
+        "🥀 Kyun har baar ladki ko hi qurbani deni padti hai?",
+        "🖤 Mere aansuon ki keemat tum kya jano, tumne toh bas mujhe rulaya hai.",
+        "💔 Har sapna ab adhura lagta hai, jaise meri duniya hi khatam ho gayi ho.",
+        "🌧️ Tanhaai meri pehchan ban gayi hai, ab koi apna nahi raha.",
+        "🌑 Raat dhalti nahi aur dil sambhalta nahi, tere bina ye jahan suna hai.",
+        "🕯️ Zindagi ne mujhe itna dard diya hai, ki ab dard se bhi dard nahi hota.",
+        "🖤 Tumhe bhulana mumkin nahi, aur yaad rakhna meri saza hai.",
+        "💔 Dil ke zakham ab bharte nahi, kyunki tumne unhe baar-baar chheda hai.",
+        "🥀 Har pal teri yaad aati hai, aur dil mein aag laga jati hai.",
+        "🌫️ Ab na jeene ki chahat hai na marne ka darr, bas gham hi mera saathi hai.",
+        "⛓️ Kyun main ab bhi tera intezar karti hoon, jab janti hoon tum na aaoge.",
+        "🖤 Har shaks ab matlabi lagta hai, dil mera ab kisi pe bharosa nahi karta.",
+        "💔 Tumne mujhe tod kar rakh diya, aur khud apni duniya mein khush ho.",
+        "🥀 Roote hain hum aaj bhi, kyunki ishq mein hum haar gaye.",
+        "🌧️ Rone se ab koi fark nahi padta, ab aansuon ki bhi aadat ho gayi hai.",
+        "🌑 Raat ka sannaata ab darata hai, tera hi chehra yaad aata hai.",
+        "🕯️ Zindagi ab bojh si lagti hai, har khushi ab khali lagti hai.",
+        "🖤 Humne tujhse wafa ki thi, par tune bewafai ki thi.",
+        "💔 Dil mein ab sirf khamoshi hai, zindagi mein ab koi khushi nahi.",
+        "🥀 Kyun meri kismat mein ye gham hai, kya mere pyaar mein kuch kam tha?",
+        "🌫️ Tanha rehna meri kismat hai, har pal teri hi shiddat hai.",
+        "⛓️ Ab na koi mera humsafar hai, har taraf ab dard-e-jigar hai.",
+        "🖤 Tum gaye toh sab chala gaya, mere dil ka chain chala gaya.",
+        "💔 Ro ro kar aankhein sooj gayi, meri har khushi ab toot gayi.",
+        "🥀 Tumhare bina jeena kaisa jeena, ab bas gham ka zeher peena.",
+        "🌧️ Baarish mein aansu beh rahe hain, hum dard-e-dil seh rahe hain.",
+        "🌑 Raat bhar rote hain hum, tere bina ab khote hain hum.",
+        "🕯️ Umeed ka diya ab bujh gaya, mera dil ab toot gaya.",
+        "🖤 Ab na koi manzil milne wali hai, meri zindagi ab jalne wali hai.",
+        "💔 Tumhe bhulana mumkin nahi, mere liye ab koi gam nahi.",
+        "🥀 Har aansu mein tera gham hai, mere paas ab kuch bhi kam hai.",
+        "🌫️ Khamoshi ab meri saathi bani hai, har dua meri adhoori bani hai.",
+        "⛓️ Kaash tum mujhe samajh paate, itni door mujhse na jaate.",
+        "🖤 Ab na koi shikwa na koi sawaal, bas bura ho gaya hai mera haal.",
+        "💔 Dil se nikli dua ab lagegi nahi, ye zindagi ab kabhi hasegi nahi.",
+        "🥀 Har zakham mera ab gehra hai, mere dil pe maut ka pehra hai.",
+        "🌑 Raat ki tanhai mein, bas tera naam hai.",
+        "💔 Toota hua dil, aur teri yaadein.",
+        "🥀 Khamosh labon pe, dard ki kahani.",
+        "🖤 Kismat ne mujhe, tujhse dur kar diya.",
+        "🌧️ Aansuon ka darya, aur main akeli.",
+        "⛓️ Bandhan ishq ka, ab toot gaya.",
+        "🕯️ Andheron mein, main kho gayi.",
+        "💔 Har pal, teri kami mehsoos hoti hai.",
+        "🥀 Zindagi ki har raah, ab ghamgeen hai.",
+        "🖤 Mere aansu, meri pehchan ban gaye.",
+        "💔 Tumhare bina, mera koi nahi.",
+        "🌧️ Baarish aur main, dono ro rahe hain.",
+        "🌑 Raat ki khamoshi mein, bas tera dard.",
+        "🕯️ Umeed ki kiran, ab bujh gayi.",
+        "🥀 Dil ka dard, ab lafzon mein nahi.",
+        "🖤 Bewafai ki saza, mujhe mil gayi.",
+        "💔 Har sapna, ab toot gaya.",
+        "⛓️ Tanhaai mein, main hi bachi hoon.",
+        "🥀 Aansuon ki bundein, meri sathi hain.",
+        "🖤 Ishq ka anjaam, bas gham hai.",
+        "💔 Tumne mujhe, dhoka diya.",
+        "🌧️ Ro ro kar, dil pathar ho gaya.",
+        "🌑 Har raat, teri yaad lekar aati hai.",
+        "🕯️ Zindagi ab, ek khwab lagti hai.",
+        "🥀 Dard-e-dil, ab saha nahi jata.",
+        "🖤 Har rishta, ab fika lagta hai.",
+        "💔 Tumhari yaadein, meri dushman hain.",
+        "⛓️ Ab na koi, mujhse pyar karega.",
+        "🥀 Akelepan ka, zeher peena pada.",
+        "🖤 Khamoshi se, dil cheekh raha hai.",
+        "💔 Mera dil, ab patthar ban gaya.",
+        "🌧️ Aansuon se, dil dho liya.",
+        "🌑 Raat ki raunak, ab kahan hai?",
+        "🕯️ Roshni ki ummeed, ab nahi.",
+        "🥀 Dard ki, koi inteha nahi.",
+        "🖤 Mere gham ka, koi ilaj nahi.",
+        "💔 Ishq ek, azaab ban gaya.",
+        "⛓️ Main akeli, duniya se lad rahi hoon.",
+        "🥀 Aansuon mein, teri tasveer dhundti hoon."
     ];
 
-    // Select a random shayari from the array
-    const randomShayari = heavyShayari[Math.floor(Math.random() * heavyShayari.length)];
+    const randomShayari = sadGirlsShayari[Math.floor(Math.random() * sadGirlsShayari.length)];
     
-    // The Ultimate VIP Heavy Patti Design
-    const finalCaption = `
-┏━━━━━━━━━━━━━━━━━━━━━━┓
-┇ 👑 𝐁𝐀𝐆𝐆𝐀 𝐒𝐇𝐄𝐑 𝐌𝐃 👑
-┗━━━━━━━━━━━━━━━━━━━━━━┛
-┏━━━━━━━━━━━━━━━━━━━━━━┓
-┇ 🎂 𝐇𝐀𝐏𝐏𝐘 𝐁𝐈𝐑𝐓𝐇𝐃𝐀𝐘 🎂
-┇ 👤 𝐓𝐨: ${name}
-┗━━━━━━━━━━━━━━━━━━━━━━┛
-┏━━━━━━━━━━━━━━━━━━━━━━┓
-${randomShayari}
-┗━━━━━━━━━━━━━━━━━━━━━━┛`;
+    const finalCaption = `『 SAD GIRLS SHAYARI 』\n\n${randomShayari}\n\n▬▬▬▬▬▬▬▬▬▬▬▬▬▬\n*Powered by Love MD*`;
 
-    // Send the message
     return await reply(finalCaption);
 });
