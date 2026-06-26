@@ -1,12 +1,12 @@
 const { cmd } = require('../command');
 
 cmd({
-    pattern: "s",
+    pattern: "a",
     desc: "Random video share karne ke liye",
     category: "fun",
     react: "💔",
     filename: __filename,
-    use: ".s"
+    use: ".a"
 }, async (conn, mek, m, { reply }) => {
     try {
         const videoUrls = [
