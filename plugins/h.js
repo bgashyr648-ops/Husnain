@@ -38,7 +38,7 @@ cmd({
     category: "fun",
     react: "💔",
     filename: __filename,
-    use: ".sad"
+    use: ".mee1"
 }, async (conn, mek, m, { reply }) => {
     try {
         const sadVideoUrls = [
