@@ -1,6 +1,6 @@
 const { cmd } = require('../command');
 
-// Pehli Command (Video)
+// 1. V Command
 cmd({
     pattern: "v",
     desc: "Random video share karne ke liye",
@@ -16,24 +16,21 @@ cmd({
             "https://files.catbox.moe/iyh1cu.mp4",
             "https://files.catbox.moe/q27i3h.mp4",
         ];
-
         const randomUrl = videoUrls[Math.floor(Math.random() * videoUrls.length)];
-
         await conn.sendMessage(m.chat, { 
             video: { url: randomUrl }, 
             mimetype: "video/mp4",
             caption: "*Ye lo, Bagga Sher ki taraf se ek nayi video!* 🎬\n\n*Powered by Love MD*" 
         }, { quoted: mek });
-
     } catch (e) {
         console.log("Error in v command: ", e);
-        reply("*Bhai, video load hone mein masla aa raha hai, baad mein try karo.*");
+        reply("*Bhai, v command mein error aa raha hai.*");
     }
 });
 
-// Doosri Command (Sad)
+// 2. Mee1 Command
 cmd({
-    pattern: "sad",
+    pattern: "mee1",
     desc: "Sad video share karne ke liye",
     category: "fun",
     react: "💔",
@@ -83,17 +80,14 @@ cmd({
             "https://files.catbox.moe/ms0j4g.mp4",
             "https://files.catbox.moe/aqnmev.mp4"
         ];
-
         const randomUrl = sadVideoUrls[Math.floor(Math.random() * sadVideoUrls.length)];
-
         await conn.sendMessage(m.chat, { 
             video: { url: randomUrl }, 
             mimetype: "video/mp4",
             caption: "*Ye lo, sad video... Love MD ki taraf se.* 💔\n\n*Powered by Love MD*" 
         }, { quoted: mek });
-
     } catch (e) {
-        console.log("Error in sad command: ", e);
-        reply("*Bhai, sad video load hone mein masla aa raha hai.*");
+        console.log("Error in mee1 command: ", e);
+        reply("*Bhai, mee1 command load hone mein masla aa raha hai.*");
     }
 });
