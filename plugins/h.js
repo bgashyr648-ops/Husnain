@@ -1,4 +1,4 @@
-const { cmd } = require('../command');
+    const { cmd } = require('../command');
 
 // 1. V Command
 cmd({
@@ -20,11 +20,10 @@ cmd({
         await conn.sendMessage(m.chat, { 
             video: { url: randomUrl }, 
             mimetype: "video/mp4",
-            caption: "*Ye lo, Bagga Sher ki taraf se ek nayi video!* 🎬\n\n*Powered by Love MD*" 
+            caption: "*Ye lo, Bagga Sher ki taraf se ek nayi video!* 🎬" 
         }, { quoted: mek });
     } catch (e) {
-        console.log("Error in v command: ", e);
-        reply("*Bhai, v command mein error aa raha hai.*");
+        reply("*Error in v command.*");
     }
 });
 
@@ -41,16 +40,13 @@ cmd({
         const sadVideoUrls = [
             "https://files.catbox.moe/tmiz6x.mp4",
             "https://files.catbox.moe/l323fi.mp4",
-            "https://files.catbox.moe/l323fi.mp4",
             "https://files.catbox.moe/eywvi9.mp4",
             "https://files.catbox.moe/4kf22n.mp4",
             "https://files.catbox.moe/q593vp.mp4",
             "https://files.catbox.moe/rqa06l.mp4",
-            "https://files.catbox.moe/rqa06l.mp4",
             "https://files.catbox.moe/3rhm0o.mp4",
             "https://files.catbox.moe/cy6d9h.mp4",
             "https://files.catbox.moe/4cngxm.mp4",
-            "https://files.catbox.moe/03v9r3.mp4",
             "https://files.catbox.moe/03v9r3.mp4",
             "https://files.catbox.moe/mwxtq3.mp4",
             "https://files.catbox.moe/z3j9qd.mp4",
@@ -65,7 +61,6 @@ cmd({
             "https://files.catbox.moe/ihdnij.mp4",
             "https://files.catbox.moe/xh2wm4.mp4",
             "https://files.catbox.moe/ltpd6m.mp4",
-            "https://files.catbox.moe/zf14q1.mp4",
             "https://files.catbox.moe/zf14q1.mp4",
             "https://files.catbox.moe/bnyt3v.mp4",
             "https://files.catbox.moe/a1l6ac.mp4",
@@ -84,10 +79,9 @@ cmd({
         await conn.sendMessage(m.chat, { 
             video: { url: randomUrl }, 
             mimetype: "video/mp4",
-            caption: "*Ye lo, sad video... Love MD ki taraf se.* 💔\n\n*Powered by Love MD*" 
+            caption: "*Ye lo, sad video... Love MD ki taraf se.* 💔" 
         }, { quoted: mek });
     } catch (e) {
-        console.log("Error in mee1 command: ", e);
-        reply("*Bhai, mee1 command load hone mein masla aa raha hai.*");
+        reply("*Error in mee1 command.*");
     }
 });
