@@ -10,7 +10,7 @@ const axios = require("axios");
 
 const API_CONFIG = {
     VIDEO_API: Buffer.from("aHR0cHM6Ly9qYXdhZC10ZWNoLnZlcmNlbC5hcHAvZG93bmxvYWQveXRkbD91cmw9", "base64").toString(),
-    AUDIO_API: Buffer.from("aHR0cHM6Ly9hcGkubmV4cmF5LmV1LmNjL2Rvd25sb2FkZXIvc2F2ZXR1YmU/dXJsPQ==", "base64").toString()
+    AUDIO_API: Buffer.from("aHR0cHM6Ly95dC1kbC5vZmZpY2lhbGhlY3Rvcm1hbnVlbC53b3JrZXJzLmRldi8/dXJsPQ==", "base64").toString()
 };
 
 /**
@@ -163,17 +163,17 @@ async (conn, mek, m, { from, args, q, reply }) => {
             caption: `╭━━〔 🎵 𝗠𝗨𝗦𝗜𝗖 𝗙𝗢𝗨𝗡𝗗 〕━━━╮\n┃ 🎧 *Title* : ${vid.title}\n┃ ⏱️ *Duration* : ${vid.timestamp || 'N/A'}\n╰━━━━━━━━━━━━━━━━━╯\n\n⏳ *Downloading audio...*`
         }, { quoted: mek });
 
-        // API Download (Using updated audio API)
-        const apiUrl = `${API_CONFIG.AUDIO_API}${encodeURIComponent(videoUrl)}&quality=mp3`;
-        const { data } = await axios.get(apiUrl);
+        // API Download (Using encoded API)
+        let api = `${API_CONFIG.AUDIO_API}${encodeURIComponent(videoUrl)}`;
+        let { data } = await axios.get(api);
 
-        if (!data || !data.status || !data.result || !data.result.url) {
+        if (!data || !data.status || !data.audio) {
             return reply("❌ API error! Try again later.");
         }
 
         // Sending Audio only
         await conn.sendMessage(from, {
-            audio: { url: data.result.url },
+            audio: { url: data.audio },
             mimetype: "audio/mpeg"
         }, { quoted: mek });
 
